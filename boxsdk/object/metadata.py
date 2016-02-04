@@ -126,6 +126,20 @@ class Metadata(BaseEndpoint):
         """ Base class override. """
         return self._object.get_url('metadata', self._scope, self._template)
 
+    def get_templates_url(self, *args):
+        return self._object.get_url('metadata')
+
+    def templates(self):
+        """
+        Get list of all metadata templates
+
+        :return:
+            A dictionary containing the key/value pairs for this metadata templates.
+        :rtype:
+            :class:`Metadata`
+        """
+        return self._session.get(self.get_templates_url()).json()
+
     @staticmethod
     def start_update():
         """
