@@ -91,9 +91,9 @@ class Client(object):
         Get all metadata templates of the user
 
         :return:
-            A :class:`Metadata` object. Can use for getting all account meta templates by calling 'all'
+            A :class:`Metadata` not associated object. To get all scope meta templates call 'scope_templates' method.
         """
-        return Metadata(session=self._session)
+        return Metadata(session=self._session, box_object='me', scope='enterprise', template=None)
 
     def group(self, group_id):
         """
