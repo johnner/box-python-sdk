@@ -153,10 +153,9 @@ class Metadata(BaseEndpoint):
         return MetadataUpdate()
 
     def get_metadata_templates_url(self, scope):
-        return self.get_url(scope)
+        return super(Metadata, self).get_url('metadata_templates', scope)
 
     def scope_templates(self, scope='enterprise'):
-        import ipdb; ipdb.set_trace()
         return self._session.get(self.get_metadata_templates_url(scope)).json
 
     def update(self, metadata_update):
