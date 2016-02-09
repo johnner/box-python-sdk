@@ -14,6 +14,7 @@ __all__ = [
     'group_membership',
     'search',
     'user',
+    'metadata'
 ]
 
 if six.PY2:

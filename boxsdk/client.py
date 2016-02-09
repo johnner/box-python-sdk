@@ -13,6 +13,7 @@ from .object.search import Search
 from .object.events import Events
 from .object.file import File
 from .object.group import Group
+from .object.metadata import Metadata
 from .object.group_membership import GroupMembership
 from .util.shared_link import get_shared_link_header
 from .util.translator import Translator
@@ -84,6 +85,15 @@ class Client(object):
             :class:`User`
         """
         return User(session=self._session, object_id=user_id)
+
+    def metadata(self):
+        """
+        Get all metadata templates of the user
+
+        :return:
+            A :class:`Metadata` object. Can use for getting all account meta templates by calling 'all'
+        """
+        return Metadata(session=self._session)
 
     def group(self, group_id):
         """

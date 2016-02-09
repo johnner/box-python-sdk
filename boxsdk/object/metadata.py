@@ -131,7 +131,7 @@ class Metadata(BaseEndpoint):
 
     def templates(self):
         """
-        Get list of all metadata templates
+        Get list of file metadata templates
 
         :return:
             A dictionary containing the key/value pairs for this metadata templates.
@@ -151,6 +151,13 @@ class Metadata(BaseEndpoint):
             :class:`MetadataUpdate`
         """
         return MetadataUpdate()
+
+    def get_metadata_templates_url(self, scope):
+        return self.get_url(scope)
+
+    def scope_templates(self, scope='enterprise'):
+        import ipdb; ipdb.set_trace()
+        return self._session.get(self.get_metadata_templates_url(scope)).json
 
     def update(self, metadata_update):
         """
